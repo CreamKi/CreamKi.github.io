@@ -1,0 +1,1178 @@
+    * {margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+    }
+
+    :root {
+    --dark-bg: #020422;
+    --darker-bg: #0d0d0d;
+    --accent: #ffffff;
+    --accent-glow: rgba(37, 53, 221, 0.5);
+    --text: #ffffff;
+    }
+
+    body {
+    background-color: var(--dark-bg);
+    min-height: 100vh;
+    display: flex;
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    }
+
+    .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    }
+
+    .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    position: relative;
+    padding-left: 2.5rem;
+    }
+
+    .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    }
+
+    .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    }
+
+    .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+    width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12% 5%;
+    }
+
+    .hero-content {
+    flex: 1;
+    padding-right: 5rem;
+    }
+
+    .hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    }
+
+
+        /* Button Styles btn1 */
+    .btn1 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn1::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #de5c8e
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn1::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn1:hover {
+      background: linear-gradient(to bottom right, #fec2f1, #de5c8e); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #de5c8e, 0 0 40px #ffffffe6;
+    }
+    .btn1:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+    /* Button Styles btn2 */
+    .btn2 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn2::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #40a008
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn2::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn2:hover {
+      background: linear-gradient(to bottom right, #b2bb1e, #006664); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #006664, 0 0 40px #ffffffe6;
+    }
+    .btn2:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn3 */
+    .btn3 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn3::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #fff821,
+        #1d4f91
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn3::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn3:hover {
+      background: linear-gradient(to bottom right, #fff821, #006eff); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #006eff, 0 0 40px #ffffffe6;
+    }
+    .btn3:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn4 */
+    .btn4 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn4::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #fff821,
+        #1d4f91
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn4::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn4:hover {
+      background: linear-gradient(to bottom right, #fff821, #006eff); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #006eff, 0 0 40px #ffffffe6;
+    }
+    .btn4:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn5 */
+    .btn5 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn5::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #d46b0f
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn5::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn5:hover {
+      background: linear-gradient(to bottom right, #d46b0f, #8e8e8e); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #d46b0f, 0 0 40px #ffffffe6;
+    }
+    .btn5:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn6 */
+    .btn6 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn6::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #c90a0a
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-boc90a0ax,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn6::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn6:hover {
+      background: linear-gradient(to bottom right, #ff8e8e, #c90a0a); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #c90a0a, 0 0 40px #ffffffe6;
+    }
+    .btn6:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn7 */
+    .btn7 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn7::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #0413ea
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-boc90a0ax,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn7::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn7:hover {
+      background: linear-gradient(to bottom right, #a4aaf7, #0413ea); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #0413ea, 0 0 40px #ffffffe6;
+    }
+    .btn7:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn8 */
+    .btn8 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn8::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #020422,
+        #f05907,
+        #7ae616,
+        #5863ff,
+        #f8ff21
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-boc90a0ax,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn8::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn8:hover {
+      background: linear-gradient(to bottom right,#f05907,#000dc6,#f8ff21); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #0413ea, 0 0 40px #ffffffe6;
+    }
+    .btn8:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn9 */
+    .btn9 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn9::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #888787
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-boc90a0ax,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn9::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn9:hover {
+      background: linear-gradient(to bottom right, #b4b3b3, #656565); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #656565, 0 0 40px #ffffffe6;
+    }
+    .btn9:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn10 */
+    .btn10 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn10::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #ffdd03
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-boc90a0ax,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn10::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn10:hover {
+      background: linear-gradient(to bottom right, #ffe95d, #ffc400); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #ffdd03, 0 0 40px #ffffffe6;
+    }
+    .btn10:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn11 */
+    .btn11 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn11::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #4700aa,
+        #d905b9,
+        #ffd918
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-boc90a0ax,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn11::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn11:hover {
+      background: linear-gradient(to bottom right, #4700aa, #d905b9,#ffd918); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #4700aa, 0 0 40px #ffffffe6;
+    }
+    .btn11:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn12 */
+    .btn12 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn12::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #4700aa,
+        #001bec
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-boc90a0ax,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn12::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn12:hover {
+      background: linear-gradient(to bottom right, #4700aa, #001bec); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #001bec, 0 0 40px #ffffffe6;
+    }
+    .btn12:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn13 */
+    .btn13 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn13::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #009889,
+        #ffe60a
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-boc90a0ax,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn13::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn13:hover {
+      background: linear-gradient(to bottom right, #009889, #ffe60a); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #009889, 0 0 40px #ffffffe6;
+    }
+    .btn13:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
+
+
+    /* Button Styles btn14 */
+    .btn14 {
+      position: relative;
+      padding: 1em 2em;
+      background: #141d52; /* normal background */
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      overflow: hidden;
+      z-index: 1;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+    }
+
+    /* spinning border ring */
+    .btn14::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2.5px; /* border thickness */
+      border-radius: 50px;
+      background: conic-gradient(
+        from var(--angle),
+        #020422,
+        #020422,
+        #ffffff,
+        #0055cd
+      );
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask: 
+        linear-gradient(#000 0 0) content-boc90a0ax,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 4s linear infinite;
+      z-index: -1;
+    }
+
+    /* glow blur */
+    .btn14::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50px;
+      background: inherit;
+      filter: blur(25px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -2;
+    }
+
+    /* hover effect */
+    .btn14:hover {
+      background: linear-gradient(to bottom right, #7fb4ff, #0055cd); /* new bg color */
+      color: #fff;
+      box-shadow: 0 0 20px #0055cd, 0 0 40px #ffffffe6;
+    }
+    .btn14:hover::after {
+      opacity: 1; /* glow shows */
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin {
+      from { --angle: 0deg; }
+      to   { --angle: 360deg; }
+    }
